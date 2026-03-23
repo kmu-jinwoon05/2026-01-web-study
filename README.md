@@ -47,6 +47,11 @@ projects/
 - 1주차 실습은 `week1/index.html`을 브라우저로 열거나 VS Code `Live Server`로 실행하면 됩니다.
 - 참고 자료와 공지는 `materials/`에 추가합니다.
 
+## 운영 문서
+- `materials/student-announcement.md`: 학생 공지문
+- `materials/submission-guide.md`: 과제 제출 가이드
+- `materials/orientation-script.md`: 첫 안내용 진행 스크립트
+
 ## 운영 메모
 - 학생 초대: GitHub Organization 또는 레포 `Settings`의 멤버 관리 기능을 사용합니다.
 - 피드백: 학생 폴더 기준으로 코드 확인 및 리뷰를 진행합니다.

@@ -4,19 +4,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>나의 첫 웹페이지</title>
+  <title>포켓몬 도감 검색</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="card">
-    <p class="eyebrow">2026 KOSS WEB PROJECT STUDY</p>
-    <h1>안녕하세요, 저는 ___ 입니다</h1>
-    <p class="desc">제가 만들고 싶은 사이트는 ___ 입니다.</p>
-    <p class="desc">제가 사용할 AI 도구는 ___입니다.</p>
-    <p class="desc">제 깃허브 아이디는 ___입니다.</p>
-    <button id="cheerButton">___의 계획 제출하기</button>
+  <main class="app">
+    <section class="panel">
+      <p class="eyebrow">POKEDEX LOOKUP</p>
+      <h1>도감 번호로 포켓몬 찾기</h1>
+      <p class="description">
+        포켓몬 도감 번호를 입력하면 이름과 타입을 바로 보여줍니다.
+      </p>
+
+      <form id="searchForm" class="search-form">
+        <label class="input-label" for="pokemonId">도감 번호</label>
+        <div class="input-row">
+          <input id="pokemonId" name="pokemonId" type="number" min="1" max="1025" placeholder="예: 25" required />
+          <button type="submit">검색</button>
+        </div>
+      </form>
+
+      <section id="resultCard" class="result-card is-hidden" aria-live="polite">
+        <div class="image-frame">
+          <img id="pokemonImage" class="pokemon-image" alt="" />
+        </div>
+        <p class="result-number" id="pokemonNumber"></p>
+        <h2 id="pokemonName">이름</h2>
+        <div class="type-list" id="pokemonTypes"></div>
+      </section>
+
+      <p id="statusMessage" class="status-message">번호를 입력하고 검색해 보세요.</p>
+    </section>
   </main>
+
   <script src="script.js"></script>
 </body>
 

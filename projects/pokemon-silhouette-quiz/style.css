@@ -1,0 +1,293 @@
+:root {
+  --bg: #f6efe2;
+  --panel: rgba(255, 249, 240, 0.88);
+  --panel-strong: #fffdf7;
+  --ink: #1f2530;
+  --muted: #6d7280;
+  --line: rgba(44, 52, 66, 0.12);
+  --accent: #ee6c4d;
+  --accent-deep: #c44536;
+  --accent-soft: rgba(238, 108, 77, 0.18);
+  --correct: #2f855a;
+  --wrong: #c53030;
+  --shadow: 0 24px 60px rgba(51, 44, 34, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.75), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(255, 184, 108, 0.35), transparent 24%),
+    linear-gradient(150deg, #fff6df 0%, #ffd7b8 45%, #f7b267 100%);
+}
+
+.app {
+  width: min(100%, 920px);
+  margin: 0 auto;
+  padding: 40px 20px 56px;
+}
+
+.hero {
+  margin-bottom: 24px;
+}
+
+.eyebrow,
+.label,
+.hint {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent-deep);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 6vw, 4.5rem);
+  line-height: 0.98;
+}
+
+.intro {
+  max-width: 680px;
+  margin: 16px 0 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.quiz-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.22)),
+    var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.label {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.value {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.progress-track {
+  width: 100%;
+  height: 12px;
+  margin-top: 18px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(80, 90, 108, 0.12);
+}
+
+.progress-bar {
+  width: 3.333%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff7f51, #f25f5c);
+  transition: width 0.25s ease;
+}
+
+.silhouette-stage {
+  display: grid;
+  place-items: center;
+  margin-top: 24px;
+  padding: 26px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.8), transparent 40%),
+    linear-gradient(180deg, rgba(255, 236, 214, 0.96), rgba(255, 250, 241, 0.7));
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.image-shell {
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 173, 96, 0.28), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 244, 228, 0.88));
+}
+
+.pokemon-image {
+  width: min(88%, 300px);
+  height: min(88%, 300px);
+  object-fit: contain;
+  user-select: none;
+  transition: filter 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+}
+
+.pokemon-image.is-silhouette {
+  filter: brightness(0) saturate(0);
+  transform: scale(1.02);
+}
+
+.question-meta {
+  margin-top: 18px;
+}
+
+.question-label {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.answer-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+input,
+button {
+  font: inherit;
+  border-radius: 18px;
+}
+
+input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+input:focus {
+  outline: 3px solid var(--accent-soft);
+  border-color: rgba(238, 108, 77, 0.38);
+}
+
+button {
+  border: none;
+  padding: 16px 20px;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  transform: none;
+}
+
+.feedback {
+  min-height: 28px;
+  margin: 18px 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.feedback.neutral {
+  color: var(--muted);
+}
+
+.feedback.correct {
+  color: var(--correct);
+}
+
+.feedback.wrong {
+  color: var(--wrong);
+}
+
+.answer-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.secondary-button {
+  background: linear-gradient(135deg, #354f52, #2f3e46);
+}
+
+.result-panel {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: var(--panel-strong);
+  border: 1px solid rgba(53, 79, 82, 0.12);
+}
+
+.answer-reveal {
+  margin: 6px 0 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .app {
+    padding-inline: 14px;
+  }
+
+  .quiz-card {
+    padding: 22px 18px;
+  }
+
+  .answer-form {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-actions {
+    flex-direction: column;
+  }
+
+  .secondary-button,
+  #submitButton {
+    width: 100%;
+  }
+}

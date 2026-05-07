@@ -66,7 +66,8 @@ h1 {
   color: var(--muted);
 }
 
-.quiz-card {
+.quiz-card,
+.comment-card {
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: 32px;
@@ -77,7 +78,13 @@ h1 {
   backdrop-filter: blur(16px);
 }
 
-.quiz-top {
+.comment-card {
+  margin-top: 22px;
+}
+
+.quiz-top,
+.ranking-panel-top,
+.comment-list-top {
   display: flex;
   justify-content: space-between;
   gap: 16px;
@@ -94,6 +101,159 @@ h1 {
   margin: 0;
   font-size: 1.35rem;
   font-weight: 800;
+}
+
+.mode-text {
+  font-size: 1.05rem;
+}
+
+.start-panel-head,
+.comment-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+}
+
+.start-title,
+.comment-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.05;
+}
+
+.start-refresh-button,
+.comment-refresh-button {
+  flex-shrink: 0;
+}
+
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.mode-card {
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+  text-align: left;
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 244, 228, 0.9));
+  border: 1px solid rgba(44, 52, 66, 0.08);
+}
+
+.mode-card strong {
+  font-size: 1.5rem;
+}
+
+.mode-card span:last-child {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.mode-badge {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent-deep);
+}
+
+.ranking-entry-form,
+.comment-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.ranking-panel,
+.result-panel,
+.comment-list-panel {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: var(--panel-strong);
+  border: 1px solid rgba(53, 79, 82, 0.12);
+}
+
+.ranking-count,
+.comment-count {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.ranking-list,
+.comment-list {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.ranking-item,
+.ranking-empty,
+.comment-item,
+.comment-empty {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 247, 236, 0.9);
+  border: 1px solid rgba(44, 52, 66, 0.08);
+}
+
+.ranking-empty,
+.comment-empty {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.ranking-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.ranking-left {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.ranking-rank {
+  font-weight: 800;
+  color: var(--accent-deep);
+}
+
+.ranking-name {
+  font-weight: 800;
+}
+
+.ranking-meta,
+.comment-date {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.comment-item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.comment-author {
+  margin: 0;
+  font-weight: 800;
+}
+
+.comment-body {
+  margin: 8px 0 0;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .progress-track {
@@ -174,19 +334,27 @@ h1 {
 }
 
 input,
-button {
+button,
+textarea {
   font: inherit;
   border-radius: 18px;
 }
 
-input {
+input,
+textarea {
   width: 100%;
   padding: 16px 18px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.92);
 }
 
-input:focus {
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input:focus,
+textarea:focus {
   outline: 3px solid var(--accent-soft);
   border-color: rgba(238, 108, 77, 0.38);
 }
@@ -215,6 +383,7 @@ button:disabled {
   margin: 18px 0 0;
   font-size: 1rem;
   font-weight: 700;
+  white-space: pre-wrap;
 }
 
 .feedback.neutral {
@@ -239,12 +408,10 @@ button:disabled {
   background: linear-gradient(135deg, #354f52, #2f3e46);
 }
 
-.result-panel {
-  margin-top: 22px;
-  padding: 18px 20px;
-  border-radius: 22px;
-  background: var(--panel-strong);
-  border: 1px solid rgba(53, 79, 82, 0.12);
+.comment-intro {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 .answer-reveal {
@@ -274,20 +441,33 @@ button:disabled {
     padding-inline: 14px;
   }
 
-  .quiz-card {
+  .quiz-card,
+  .comment-card {
     padding: 22px 18px;
   }
 
+  .mode-grid,
   .answer-form {
     grid-template-columns: 1fr;
   }
 
-  .answer-actions {
+  .quiz-top,
+  .answer-actions,
+  .start-panel-head,
+  .comment-head,
+  .ranking-panel-top,
+  .comment-list-top,
+  .ranking-item,
+  .comment-item-header {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .secondary-button,
-  #submitButton {
+  #submitButton,
+  .mode-card,
+  #rankingStartButton,
+  #commentSubmitButton {
     width: 100%;
   }
 }
